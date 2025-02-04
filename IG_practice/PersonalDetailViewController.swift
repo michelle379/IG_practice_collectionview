@@ -7,10 +7,10 @@
 
 import UIKit
 
-class PersonalDetailViewController: UIViewController, UICollectionViewDataSource {
-    @IBOutlet weak var PostDetailCollectionView: UICollectionView!
+class PersonalDetailViewController: UIViewController {
     var selectPost: Posts!
 
+    @IBOutlet weak var PostImageView: UIImageView!
     @IBOutlet weak var PostDetailPageControl: UIPageControl!
     @IBOutlet var HashTagLabels: [UILabel]!
     @IBOutlet weak var SendLabel: UILabel!
@@ -33,17 +33,9 @@ class PersonalDetailViewController: UIViewController, UICollectionViewDataSource
         }else{
             PostDetailPageControl.isHidden = true
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectPost.imagesname.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonalDetailCollectionViewCell.reuseIdentifier, for: indexPath) as! PersonalDetailCollectionViewCell
         
+        PostImageView.image = UIImage(named: selectPost.imagesname[0])
         
-        return cell
     }
 
 }

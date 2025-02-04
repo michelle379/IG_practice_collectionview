@@ -92,8 +92,9 @@ extension PersonalViewController: UICollectionViewDelegateFlowLayout {
             // 計算每個 Cell 的寬度
             let totalSpacing = itemSpacing * (columns - 1)
             let width = floor((collectionView.bounds.width - totalSpacing) / columns)
+            let height = width + 20
             
-            return CGSize(width: width, height: width) // 高度等於寬度，保持正方形
+            return CGSize(width: width, height: height) // 高度等於寬度，保持正方形
         }
     }
 }
